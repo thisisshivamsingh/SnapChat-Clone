@@ -5,8 +5,18 @@ import WebcamCapture from "./WebcamCapture";
 function App() {
   return (
     <div className="app">
-      <h1>LETS BUILD SNAPCHAT</h1>
-      <WebcamCapture />
+      <Router>
+        <div className="app__body">
+  <Switch>
+    <Route exact path="/test">
+      <h1>YO WHATS UP</h1>
+    </Route>
+    <Route exact path="/">
+      <WebcamCapture/>
+    </Route>
+  </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
