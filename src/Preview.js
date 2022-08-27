@@ -14,7 +14,7 @@ import TimerIcon from "@mui/icons-material/Timer";
 import SendIcon from "@mui/icons-material/Send";
 import { v4 as uuid } from "uuid";
 import { db, storage } from "./firebase";
-import firebase from "firebase/compat/app";
+import firebase from 'firebase/compat/app';
 
 function Preview() {
   const cameraImage = useSelector(selectCameraImage);
