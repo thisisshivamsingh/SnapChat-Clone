@@ -15,11 +15,13 @@ import SendIcon from "@mui/icons-material/Send";
 import { v4 as uuid } from "uuid";
 import { db, storage } from "./firebase";
 import firebase from 'firebase/compat/app';
+import { selectUser } from "./features/appSlice";
 
 function Preview() {
   const cameraImage = useSelector(selectCameraImage);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     if (!cameraImage) {
@@ -50,12 +52,12 @@ function Preview() {
           .ref("posts").child(id).getDownloadURL().then((url)=>{
             db.collection("posts").add({
               imageUrl:url,
-              username:"Shivam React",
+              username:user.username,
               read:false,
-              // profilePic,
+              profilePic:user.profilePic,
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
-            navigate('./chats');
+            navigate('/chats');
           })
         }
       )
