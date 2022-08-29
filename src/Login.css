@@ -1,6 +1,5 @@
 .login{
-    /* background-color: #feff00; */
-    background-color: red;
+    background-color: #feff00;
     display: grid;
     place-items: center;
     height: 100vh;
